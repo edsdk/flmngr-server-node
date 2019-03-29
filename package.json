@@ -1,0 +1,58 @@
+{
+  "name": "@edsdk/flmngr-server",
+  "version": "1.0.0",
+  "private": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "author": "https://flmngr.com/",
+  "license": "Commercial EdSDK license",
+  "scripts": {
+    "start": "nodemon",
+    "build": "tsc",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/server/src/server.js",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "@edsdk/file-uploader-server": "^1.0.5",
+    "archiver": "^3.0.0",
+    "body-parser": "^1.18.2",
+    "del": "^4.0.0",
+    "express": "^4.16.2",
+    "fs-extra": "^7.0.1",
+    "lodash": "^4.17.5",
+    "sharp": "^0.21.3"
+  },
+  "devDependencies": {
+    "@types/archiver": "^2.1.2",
+    "@types/body-parser": "^1.16.8",
+    "@types/compression": "^0.0.36",
+    "@types/dotenv": "^6.1.0",
+    "@types/errorhandler": "^0.0.32",
+    "@types/express": "^4.11.1",
+    "@types/fs-extra": "^5.0.5",
+    "@types/lodash": "^4.14.91",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^10.12.11",
+    "@types/sharp": "^0.21.3",
+    "compression": "^1.7.1",
+    "dotenv": "^7.0.0",
+    "errorhandler": "^1.5.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.13.0",
+    "ts-node": "^8.0.3",
+    "tsconfig-paths": "^3.8.0",
+    "tslint": "^5.9.1",
+    "typescript": "^3.2.1"
+  },
+  "keywords": [
+    "edsdk",
+    "file-manager",
+    "file",
+    "image",
+    "manager",
+    "server",
+    "express",
+    "imgpen"
+  ]
+}
