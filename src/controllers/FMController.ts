@@ -43,7 +43,7 @@ export default class FMController {
 		});
 	};
 
-	getDirectories = async (_: Request, res: Response) => {
+	dirList = async (_: Request, res: Response) => {
 		let isDirExists = fs.existsSync(this._rootDirPath) && fs.lstatSync(this._rootDirPath).isDirectory();
 
 		if (!isDirExists) {
@@ -76,7 +76,7 @@ export default class FMController {
 		res.json({data, error: null});
 	};
 
-	createDirectory = async (req: Request, res: Response) => {
+	dirCreate = async (req: Request, res: Response) => {
 		const {d: dirPath, n: name} = req.body;
 
 		if (areThereForbiddenCharacters(name)) {
@@ -98,7 +98,7 @@ export default class FMController {
 		}
 	};
 
-	renameDirectory = async (req: Request, res: Response) => {
+	dirRename = async (req: Request, res: Response) => {
 		const {d: dirPath, n: name} = req.body;
 
 		if (areThereForbiddenCharacters(name)) {
@@ -124,7 +124,7 @@ export default class FMController {
 		}
 	};
 
-	deleteDirectory = async (req: Request, res: Response) => {
+	dirDelete = async (req: Request, res: Response) => {
 		const {d: dirPath} = req.body;
 		const absPath = this._toAbsolutePath(dirPath);
 
@@ -141,7 +141,7 @@ export default class FMController {
 		}
 	};
 
-	copyDirectory = async (req: Request, res: Response) => {
+	dirCopy = async (req: Request, res: Response) => {
 		const {d: dirPath, n: newPath} = req.body;
 
 		const absDirPath = this._toAbsolutePath(dirPath);
@@ -165,7 +165,7 @@ export default class FMController {
 		}
 	};
 
-	moveDirectory = async (req: Request, res: Response) => {
+	dirMove = async (req: Request, res: Response) => {
 		const {d: dirPath, n: newPath} = req.body;
 
 		const absDirPath = this._toAbsolutePath(dirPath);
@@ -189,7 +189,7 @@ export default class FMController {
 		}
 	};
 
-	downloadDirectory = async (req: Request, res: Response) => {
+	dirDownload = async (req: Request, res: Response) => {
 		const {d: dirPath} = req.query;
 
 		const dirAbsolutePath = this._toAbsolutePath(dirPath);
@@ -211,7 +211,7 @@ export default class FMController {
 		}
 	};
 
-	getFiles = async (req: Request, res: Response) => {
+	fileList = async (req: Request, res: Response) => {
 		const {d: dirPath} = req.body;
 		const absDirPath = this._toAbsolutePath(dirPath);
 
@@ -245,7 +245,7 @@ export default class FMController {
 		}
 	};
 
-	deleteFiles = async (req: Request, res: Response) => {
+	fileDelete = async (req: Request, res: Response) => {
 		const {fs: filePaths} = req.body;
 		const filePathsList = (filePaths as string).split('|');
 
@@ -277,7 +277,7 @@ export default class FMController {
 		}
 	};
 
-	copyFiles = async (req: Request, res: Response) => {
+	fileCopy = async (req: Request, res: Response) => {
 		const {fs: filePaths, n: newPath} = req.body;
 		const filePathsList = (filePaths as string).split('|');
 
@@ -314,7 +314,7 @@ export default class FMController {
 		}
 	};
 
-	renameFile = async (req: Request, res: Response) => {
+	fileRename = async (req: Request, res: Response) => {
 		const {f: filePath, n: name} = req.body;
 
 		if (areThereForbiddenCharacters(getFileNameWithoutExt(name))) {
@@ -344,7 +344,7 @@ export default class FMController {
 		}
 	};
 
-	moveFiles = async (req: Request, res: Response) => {
+	fileMove = async (req: Request, res: Response) => {
 		const {fs: filePaths, n: newPath} = req.body;
 		const filePathsList = (filePaths as string).split('|');
 		const absNewPath = this._toAbsolutePath(newPath);
@@ -380,7 +380,7 @@ export default class FMController {
 		}
 	};
 
-	getImageOriginal = async (req: Request, res: Response) => {
+	fileOriginal = async (req: Request, res: Response) => {
 		const {f: filePath} = req.query;
 		const fileAbsolutePath = this._toAbsolutePath(filePath);
 
@@ -407,7 +407,7 @@ export default class FMController {
 		}
 	};
 
-	getImagePreview = async (req: Request, res: Response) => {
+	filePreview = async (req: Request, res: Response) => {
 		const {f: filePath, width, height} = req.query;
 		const fileAbsolutePath = this._toAbsolutePath(filePath);
 

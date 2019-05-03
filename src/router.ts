@@ -3,28 +3,66 @@ import path from 'path';
 
 import FMController from './controllers/FMController';
 import {DiskFileSystemRepository} from './repositories/DiskFileSystemRepository';
+import FileUploaderServer from "@edsdk/file-uploader-server";
 
-export const createRouter = (rootDirPath: string): Router => {
+export const createRouter = (config: {
+    app: express.Express,
+    url: string,
+    dir: string,
+    config?: { [key: string]: string }
+}): Router => {
 	const router = express.Router();
 
 	const repository = new DiskFileSystemRepository();
-	const controller = new FMController(repository, path.resolve(rootDirPath));
+	const controller = new FMController(repository, path.resolve(config.dir));
 
-	router.post('/dirList', controller.getDirectories);
-	router.post('/dirCreate', controller.createDirectory);
-	router.post('/dirRename', controller.renameDirectory);
-	router.post('/dirDelete', controller.deleteDirectory);
-	router.post('/dirCopy', controller.copyDirectory);
-	router.post('/dirMove', controller.moveDirectory);
-	router.get('/dirDownload', controller.downloadDirectory);
+	router.post('/', (req: express.Request, res: express.Response) => {
 
-	router.post('/fileList', controller.getFiles);
-	router.post('/fileDelete', controller.deleteFiles);
-	router.post('/fileCopy', controller.copyFiles);
-	router.post('/fileRename', controller.renameFile);
-	router.post('/fileMove', controller.moveFiles);
-	router.get('/fileOriginal', controller.getImageOriginal);
-	router.get('/filePreview', controller.getImagePreview);
+        let action = req.body.action;
+        if (action === "dirList")
+        	controller.dirList(req, res);
+        else if (action === "dirCreate")
+        	controller.dirCreate(req, res);
+        else if (action === "dirRename")
+            controller.dirRename(req, res);
+        else if (action === "dirDelete")
+            controller.dirDelete(req, res);
+        else if (action === "dirCopy")
+            controller.dirCopy(req, res);
+        else if (action === "dirMove")
+            controller.dirMove(req, res);
+        else if (action === "fileList")
+            controller.fileList(req, res);
+        else if (action === "fileDelete")
+            controller.fileDelete(req, res);
+        else if (action === "fileCopy")
+            controller.fileCopy(req, res);
+        else if (action === "fileRename")
+            controller.fileRename(req, res);
+        else if (action === "fileMove")
+            controller.fileMove(req, res);
+        else {
+            if ("data" in req.body) {
+
+                let configUploader: {[key: string]: any} = {
+                    dir: config.dir,
+                    config: config["uploader"]
+                };
+
+                FileUploaderServer.processFileUploaderRequest(req, res, configUploader);
+            }
+        }
+    });
+
+    router.get('/', (req: express.Request, res: express.Response) => {
+        let action = req.query.action;
+        if (action === "dirDownload")
+            controller.dirDownload(req, res);
+        else if (action === "fileOriginal")
+            controller.fileOriginal(req, res);
+        else if (action === "filePreview")
+            controller.filePreview(req, res);
+    });
 
 	return router;
 };

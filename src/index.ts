@@ -1,6 +1,5 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import FileUploaderServer from '@edsdk/file-uploader-server';
 
 import {createRouter} from './router';
 
@@ -12,23 +11,7 @@ export function bindFlmngr(config: {
 }): void {
 	config.app.use(config.url, bodyParser.json());
     config.app.use(config.url, bodyParser.urlencoded({extended: true}));
-
-    let urlUploader = config.url + "/uploader";
-    let configUploader: {[key: string]: any} = {
-        app: config.app,
-    	url: urlUploader,
-    	dir: config.dir,
-        config: config["uploader"]
-	};
-
-	FileUploaderServer.bindFileUploader({
-		app: config.app,
-		url: urlUploader,
-		dir: config.dir,
-		config: configUploader,
-	});
-
-    config.app.use(config.url, createRouter(config.dir));
+    config.app.use(config.url, createRouter(config));
 }
 
 

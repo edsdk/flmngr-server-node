@@ -1,6 +1,6 @@
 {
   "name": "@edsdk/flmngr-server",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,7 +14,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@edsdk/file-uploader-server": "^1.0.5",
+    "@edsdk/file-uploader-server": "^1.0.9",
     "archiver": "^3.0.0",
     "body-parser": "^1.18.2",
     "del": "^4.0.0",
