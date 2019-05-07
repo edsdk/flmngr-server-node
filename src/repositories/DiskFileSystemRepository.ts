@@ -112,8 +112,11 @@ export class DiskFileSystemRepository implements IFMRepository {
 		height: number,
 		cachePath: string,
 	) => {
+
+        const stats = fs.statSync(filePath);
+
 		const cacheFileName = `${createHash('md5')
-			.update(filePath + width + height)
+			.update(filePath + width + height + stats.size + stats.mtimeMs)
 			.digest('base64')}.jpg`;
 
 		const fullPath = path.join(cachePath, cacheFileName);
