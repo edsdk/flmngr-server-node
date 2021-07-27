@@ -3,22 +3,24 @@ import path from 'path';
 
 import FMController from './controllers/FMController';
 import {DiskFileSystemRepository} from './repositories/DiskFileSystemRepository';
-import FileUploaderServer from "@edsdk/file-uploader-server";
+import * as FileUploaderServer from "./file-uploader-server";
 
 export const createRouter = (config: {
     app: express.Express,
     url: string,
     dir: string,
-    config?: { [key: string]: string }
+    config?: any
 }): Router => {
 	const router = express.Router();
-
+    
 	const repository = new DiskFileSystemRepository();
 	const controller = new FMController(repository, path.resolve(config.dir));
 
 	router.post('/', (req: express.Request, res: express.Response) => {
 
+
         let action = req.body.action;
+        
         if (action === "dirList")
         	controller.dirList(req, res);
         else if (action === "dirCreate")
@@ -41,20 +43,22 @@ export const createRouter = (config: {
             controller.fileRename(req, res);
         else if (action === "fileMove")
             controller.fileMove(req, res);
+        else if (action === "getVersion")
+            controller.getVersion(req, res);
         else {
-            if ("data" in req.body) {
-
-                let configUploader: {[key: string]: any} = {
+            
+            if ((req as any).busboy) {
+                let configUploader: any = {
                     dir: config.dir,
-                    config: config["uploader"]
+                    config: config.config.uploader
                 };
-
                 FileUploaderServer.processFileUploaderRequest(req, res, configUploader);
             }
         }
     });
 
     router.get('/', (req: express.Request, res: express.Response) => {
+        
         let action = req.query.action;
         if (action === "dirDownload")
             controller.dirDownload(req, res);

@@ -23,7 +23,7 @@ export default class FMController {
 	private _checkPathStartsWithRoot = (pathTo: string) =>
 		pathTo.startsWith(this._rootDirPath);
 
-	private _toAbsolutePath = (dirPath: string) =>
+	private _toAbsolutePath = (dirPath: string | any) =>
 		path.join(
 			this._rootDirPath,
 			...path
@@ -42,6 +42,10 @@ export default class FMController {
 			},
 		});
 	};
+
+	getVersion = async (_: Request, res: Response) => {
+		res.json({version: 1, language: 'typescript'})
+	}
 
 	dirList = async (_: Request, res: Response) => {
 		let isDirExists = fs.existsSync(this._rootDirPath) && fs.lstatSync(this._rootDirPath).isDirectory();
@@ -190,8 +194,8 @@ export default class FMController {
 	};
 
 	dirDownload = async (req: Request, res: Response) => {
-		const {d: dirPath} = req.query;
-
+		let {d: dirPath} = req.query;
+		
 		const dirAbsolutePath = this._toAbsolutePath(dirPath);
 
 		if (!this._fmRepository.isDirectoryOrFileExists(dirAbsolutePath) ||
@@ -199,6 +203,10 @@ export default class FMController {
 		{
 			res.sendStatus(404);
 			return;
+		}
+
+		if(typeof(dirPath) != "string"){
+			dirPath = '0'
 		}
 
 		res.attachment(`${getTitle(dirPath)}.zip`);
@@ -381,7 +389,7 @@ export default class FMController {
 	};
 
 	fileOriginal = async (req: Request, res: Response) => {
-		const {f: filePath} = req.query;
+		let {f: filePath} = req.query;
 		const fileAbsolutePath = this._toAbsolutePath(filePath);
 
 		if (!this._fmRepository.isDirectoryOrFileExists(fileAbsolutePath) ||
@@ -392,6 +400,9 @@ export default class FMController {
 		}
 
 		try {
+			if(typeof(filePath) != "string"){
+				filePath = '0'
+			}
 			const ext = path.extname(filePath);
 
 			if (ext !== '.gif' && ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg') {
@@ -408,7 +419,7 @@ export default class FMController {
 	};
 
 	filePreview = async (req: Request, res: Response) => {
-		const {f: filePath, width, height} = req.query;
+		let {f: filePath, width, height} = req.query;
 		const fileAbsolutePath = this._toAbsolutePath(filePath);
 
 		if (!this._fmRepository.isDirectoryOrFileExists(fileAbsolutePath) ||
@@ -424,6 +435,9 @@ export default class FMController {
 
 				return;
 			}
+			if(typeof(filePath) != "string"){
+				filePath = '0'
+			}
 
 			const ext = path.extname(filePath);
 
@@ -431,6 +445,12 @@ export default class FMController {
 				res.sendStatus(415);
 
 				return;
+			}
+			if(typeof(width) != "string"){
+				width = '0'
+			}
+			if(typeof(height) != "string"){
+				height = '0'
 			}
 			res.setHeader('Content-Type', `image/${ext.replace('.', '')}`);
 			res.setHeader('Content-Length', await this._fmRepository.getFileSize(fileAbsolutePath));
