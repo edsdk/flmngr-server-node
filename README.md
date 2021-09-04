@@ -37,7 +37,7 @@ bindFlmngr({
     url: '/flmngr',        // URL to handle
     dir: '/var/www/files', // where files are stored into
     config: {}             // optional config
-);
+});
 ```
 
 If you want to allow access to uploaded files (usually you do) then write something like:
