@@ -4,30 +4,20 @@
         "target": "es6",
         "sourceMap": true,
         "moduleResolution": "node",
-        "alwaysStrict": true,
+        "strictNullChecks": false,
+        "strictFunctionTypes": false,
         "newLine": "crlf",
-        "forceConsistentCasingInFileNames": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true,
-        "removeComments": true,
-        "strict": true,
         "esModuleInterop": true,
         "declaration": true,
-        "allowJs": false,
-        "outDir": "dist",
-        "baseUrl": "./",
+        "outDir": "./dist",
+        "baseUrl": "./src/",
+
         "paths": {
             "*": [
                 "node_modules/*",
                 "src/types/*"
-            ]
+            ],
+            
         }
     },
     "include": [

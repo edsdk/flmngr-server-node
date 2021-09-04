@@ -10,7 +10,7 @@ export const getLastDir = (dirPath: string) => path.basename(dirPath);
 
 export const getParentPath = (dirPath: string): string => path.dirname(dirPath);
 
-export const getTitle = (dirPath: string): string => last(dirPath.split('/').slice(1))!;
+export const getTitle = (dirPath: string ): string => last(dirPath.split('/').slice(1))!;
 
 export const areThereForbiddenCharacters = (name: string): boolean => /[/\\?%*:;|"<>. ]/.test(name);
 
