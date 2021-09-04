@@ -9,8 +9,8 @@
   "scripts": {
     "start": "nodemon",
     "build": "tsc",
-    "debug": "npm run build && npm run watch-debug",
-    "serve-debug": "nodemon --inspect dist/server/src/server.js",
+    "debug": "npm run build && npm run serve-debug",
+    "serve-debug": "nodemon --inspect dist/server/src/debug-server.js",
     "prepublish": "npm run build"
   },
   "dependencies": {
