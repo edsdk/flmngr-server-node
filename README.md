@@ -1,12 +1,24 @@
-# Flmngr server
+## THIS REPO IS DEPRECATED. PLEASE MIGRATE TO THE NEW VERSION OF FLMNGR BACKEND AVAILABLE IN A SET OF PACKAGES:
 
-> Node.js Backend for Flmngr file manager
+- [@flmngr/flmngr-server-node](https://github.com/flmngr/flmngr-server-node) - base file manager server side (a library)
+- [@flmngr/flmngr-server-node-express](https://github.com/flmngr/flmngr-server-node-express) - ExpressJS module
+- [@flmngr/flmngr-server-node-nest-express](https://github.com/flmngr/flmngr-server-node-nest-express) - NestJS module
+- [@flmngr/flmngr-server-microservice](https://github.com/flmngr/flmngr-server-microservice) - standalone server for a command line
+
+
+> We recommend you start from the **[index page](https://flmngr.com/doc/install-file-manager-server-node)** for all Flmngr Node.js backends
+
+*The text below is an archive copy of readme file of the old package.*
+
+---
+
+# Flmngr server
 
 Flmngr allows you to browse and upload the files onto the server. This package provides Node backend support for Flmngr as TypeScript/JavaScript library.
 
 ## Install
 
-With [npm](https://npmjs.com/) installed, run
+With NPM installed, run
 
 ```
 $ npm install @edsdk/flmngr-server
