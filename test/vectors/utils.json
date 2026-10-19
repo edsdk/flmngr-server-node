@@ -1,0 +1,218 @@
+{
+    "source": "Utils",
+    "cases": [
+        {
+            "name": "a.png",
+            "getExt": "png",
+            "getNameWithoutExt": "a",
+            "isImage": true,
+            "getMimeType": "image/png"
+        },
+        {
+            "name": "A.PNG",
+            "getExt": "PNG",
+            "getNameWithoutExt": "A",
+            "isImage": true,
+            "getMimeType": "image/png"
+        },
+        {
+            "name": "a",
+            "getExt": null,
+            "getNameWithoutExt": "a",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "a.",
+            "getExt": "",
+            "getNameWithoutExt": "a.",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": ".hidden",
+            "getExt": "hidden",
+            "getNameWithoutExt": "",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": ".a.b",
+            "getExt": "b",
+            "getNameWithoutExt": ".a",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "a.b.c",
+            "getExt": "c",
+            "getNameWithoutExt": "a.b",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "",
+            "getExt": null,
+            "getNameWithoutExt": "",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "x.PhP",
+            "getExt": "PhP",
+            "getNameWithoutExt": "x",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "x.php.jpg",
+            "getExt": "jpg",
+            "getNameWithoutExt": "x.php",
+            "isImage": true,
+            "getMimeType": "image/jpeg"
+        },
+        {
+            "name": "photo.webp",
+            "getExt": "webp",
+            "getNameWithoutExt": "photo",
+            "isImage": true,
+            "getMimeType": "image/webp"
+        },
+        {
+            "name": "photo.svg",
+            "getExt": "svg",
+            "getNameWithoutExt": "photo",
+            "isImage": true,
+            "getMimeType": "image/svg+xml"
+        },
+        {
+            "name": "photo.bmp",
+            "getExt": "bmp",
+            "getNameWithoutExt": "photo",
+            "isImage": true,
+            "getMimeType": "image/bmp"
+        },
+        {
+            "name": "photo.gif",
+            "getExt": "gif",
+            "getNameWithoutExt": "photo",
+            "isImage": true,
+            "getMimeType": "image/gif"
+        },
+        {
+            "name": "photo.jpeg",
+            "getExt": "jpeg",
+            "getNameWithoutExt": "photo",
+            "isImage": true,
+            "getMimeType": "image/jpeg"
+        },
+        {
+            "name": "photo.JPEG",
+            "getExt": "JPEG",
+            "getNameWithoutExt": "photo",
+            "isImage": true,
+            "getMimeType": "image/jpeg"
+        },
+        {
+            "name": "dir/a.png",
+            "getExt": "png",
+            "getNameWithoutExt": "dir/a",
+            "isImage": true,
+            "getMimeType": "image/png"
+        },
+        {
+            "name": "a.tar.gz",
+            "getExt": "gz",
+            "getNameWithoutExt": "a.tar",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "photo.svgz",
+            "getExt": "svgz",
+            "getNameWithoutExt": "photo",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "photo.png ",
+            "getExt": "png ",
+            "getNameWithoutExt": "photo",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "é.png",
+            "getExt": "png",
+            "getNameWithoutExt": "é",
+            "isImage": true,
+            "getMimeType": "image/png"
+        },
+        {
+            "name": "noext/",
+            "getExt": null,
+            "getNameWithoutExt": "noext/",
+            "isImage": false,
+            "getMimeType": null
+        },
+        {
+            "name": "0",
+            "getExt": null,
+            "getNameWithoutExt": "0",
+            "isImage": false,
+            "getMimeType": null
+        }
+    ],
+    "endsWith": [
+        {
+            "str": "abc",
+            "ends": "c",
+            "result": true
+        },
+        {
+            "str": "abc",
+            "ends": "",
+            "result": false
+        },
+        {
+            "str": "",
+            "ends": "",
+            "result": true
+        },
+        {
+            "str": "abc",
+            "ends": "abc",
+            "result": true
+        },
+        {
+            "str": "abc",
+            "ends": "xabc",
+            "result": false
+        },
+        {
+            "str": "a.png",
+            "ends": ".PNG",
+            "result": false
+        },
+        {
+            "str": "a.png",
+            "ends": ".png",
+            "result": true
+        },
+        {
+            "str": "",
+            "ends": "a",
+            "result": false
+        },
+        {
+            "str": "-preview",
+            "ends": "-preview",
+            "result": true
+        },
+        {
+            "str": "x-preview",
+            "ends": "-preview",
+            "result": true
+        }
+    ]
+}

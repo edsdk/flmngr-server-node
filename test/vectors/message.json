@@ -1,0 +1,258 @@
+{
+    "source": "Message::createMessage()",
+    "cases": [
+        {
+            "code": 31,
+            "args": [
+                "x",
+                null,
+                null
+            ],
+            "result": {
+                "code": 31,
+                "args": [
+                    "x"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 31,
+            "args": [
+                "",
+                null,
+                null
+            ],
+            "result": {
+                "code": 31,
+                "args": null,
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 31,
+            "args": [
+                "0",
+                null,
+                null
+            ],
+            "result": {
+                "code": 31,
+                "args": [
+                    "0"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 29,
+            "args": [
+                "1",
+                "2",
+                "p = v"
+            ],
+            "result": {
+                "code": 29,
+                "args": [
+                    "1",
+                    "2",
+                    "p = v"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 10,
+            "args": [
+                0,
+                null,
+                null
+            ],
+            "result": {
+                "code": 10,
+                "args": null,
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 10,
+            "args": [
+                null,
+                null,
+                null
+            ],
+            "result": {
+                "code": 10,
+                "args": null,
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 6,
+            "args": [
+                "a",
+                "",
+                "c"
+            ],
+            "result": {
+                "code": 6,
+                "args": [
+                    "a"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 6,
+            "args": [
+                "a",
+                "b",
+                ""
+            ],
+            "result": {
+                "code": 6,
+                "args": [
+                    "a",
+                    "b"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 6,
+            "args": [
+                "a",
+                0,
+                "c"
+            ],
+            "result": {
+                "code": 6,
+                "args": [
+                    "a"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 8,
+            "args": [
+                "/dir/file.png",
+                null,
+                null
+            ],
+            "result": {
+                "code": 8,
+                "args": [
+                    "/dir/file.png"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 10017,
+            "args": [
+                "/var/www/files",
+                null,
+                null
+            ],
+            "result": {
+                "code": 10017,
+                "args": [
+                    "/var/www/files"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 0,
+            "args": [
+                null,
+                null,
+                null
+            ],
+            "result": {
+                "code": 0,
+                "args": null,
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 31,
+            "args": [
+                false,
+                null,
+                null
+            ],
+            "result": {
+                "code": 31,
+                "args": null,
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 31,
+            "args": [
+                [],
+                null,
+                null
+            ],
+            "result": {
+                "code": 31,
+                "args": null,
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 31,
+            "args": [
+                [
+                    "a"
+                ],
+                null,
+                null
+            ],
+            "result": {
+                "code": 31,
+                "args": [
+                    [
+                        "a"
+                    ]
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 31,
+            "args": [
+                "a",
+                "0",
+                "0"
+            ],
+            "result": {
+                "code": 31,
+                "args": [
+                    "a",
+                    "0",
+                    "0"
+                ],
+                "isCacheIssue": false
+            }
+        },
+        {
+            "code": 10002,
+            "args": [
+                "/previews/x.png",
+                null,
+                null
+            ],
+            "isCacheIssue": true,
+            "result": {
+                "code": 10002,
+                "args": [
+                    "/previews/x.png"
+                ],
+                "isCacheIssue": true
+            }
+        }
+    ]
+}

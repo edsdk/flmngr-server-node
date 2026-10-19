@@ -1,0 +1,303 @@
+{
+    "source": "FileSystem::getRelativePath()",
+    "cases": [
+        {
+            "rootDirName": "files",
+            "path": "/Files",
+            "result": ""
+        },
+        {
+            "rootDirName": "files",
+            "path": "/Files/",
+            "result": "/"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/Files/a",
+            "result": "/a"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files",
+            "result": ""
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files/",
+            "result": "/"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files/a/b.png",
+            "result": "/a/b.png"
+        },
+        {
+            "rootDirName": "files",
+            "path": "files/a",
+            "result": "/a"
+        },
+        {
+            "rootDirName": "files",
+            "path": "Files/a",
+            "result": "/a"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/Files//a/f.png",
+            "result": "//a/f.png"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/filesX/a",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files_secret/a",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/other",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files/../x",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "a/../b",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "//files/a",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files//a",
+            "result": "//a"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/FILES/a",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/Files/Files/a",
+            "result": "/Files/a"
+        },
+        {
+            "rootDirName": "files",
+            "path": "a",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/x/y",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "x",
+            "error": 10005,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files/a/",
+            "result": "/a/"
+        },
+        {
+            "rootDirName": "files",
+            "path": "..",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files/.hidden",
+            "result": "/.hidden"
+        },
+        {
+            "rootDirName": "files",
+            "path": "/Files/.",
+            "result": "/."
+        },
+        {
+            "rootDirName": "files",
+            "path": "/files/a..b",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "",
+            "path": "/Files",
+            "result": ""
+        },
+        {
+            "rootDirName": "",
+            "path": "/Files/",
+            "result": "/"
+        },
+        {
+            "rootDirName": "",
+            "path": "/Files/a",
+            "result": "/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files",
+            "result": "files"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files/",
+            "result": "files/"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files/a/b.png",
+            "result": "files/a/b.png"
+        },
+        {
+            "rootDirName": "",
+            "path": "files/a",
+            "result": "files/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "Files/a",
+            "result": "/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/Files//a/f.png",
+            "result": "//a/f.png"
+        },
+        {
+            "rootDirName": "",
+            "path": "/filesX/a",
+            "result": "filesX/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files_secret/a",
+            "result": "files_secret/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/other",
+            "result": "other"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files/../x",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "",
+            "path": "a/../b",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "",
+            "path": "",
+            "result": ""
+        },
+        {
+            "rootDirName": "",
+            "path": "/",
+            "result": ""
+        },
+        {
+            "rootDirName": "",
+            "path": "//files/a",
+            "result": "/files/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files//a",
+            "result": "files//a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/FILES/a",
+            "result": "FILES/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/Files/Files/a",
+            "result": "/Files/a"
+        },
+        {
+            "rootDirName": "",
+            "path": "a",
+            "result": "a"
+        },
+        {
+            "rootDirName": "",
+            "path": "/x/y",
+            "result": "x/y"
+        },
+        {
+            "rootDirName": "",
+            "path": "x",
+            "result": "x"
+        },
+        {
+            "rootDirName": "",
+            "path": "/files/a/",
+            "result": "files/a/"
+        },
+        {
+            "rootDirName": "",
+            "path": "..",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "rootDirName": "",
+            "path": "/files/.hidden",
+            "result": "files/.hidden"
+        },
+        {
+            "rootDirName": "",
+            "path": "/Files/.",
+            "result": "/."
+        },
+        {
+            "rootDirName": "",
+            "path": "/files/a..b",
+            "error": 10004,
+            "args": null
+        }
+    ]
+}

@@ -1,0 +1,818 @@
+{
+    "source": "FileSystem::assertFileNameAllowed()",
+    "defaultPatterns": [
+        ".htaccess",
+        ".htpasswd",
+        ".user.ini",
+        "*.php*",
+        "*.phtml",
+        "*.phar",
+        "*.pht",
+        "*.phps",
+        "*.htm",
+        "*.html",
+        "*.shtml",
+        "*.xhtml",
+        "*.xhtm",
+        "*.xht",
+        "*.svgz",
+        "*.mjs",
+        "*.es",
+        "*.aspx",
+        "*.asa",
+        "*.asax",
+        "*.ascx",
+        "*.ashx",
+        "*.asmx",
+        "*.axd",
+        "web.config",
+        "*.cer",
+        "*.cfm",
+        "*.cfml",
+        "*.cfc",
+        "*.jsp",
+        "*.jspx",
+        "*.jspf"
+    ],
+    "customPatterns": [
+        "*.exe",
+        "secret.*"
+    ],
+    "cases": [
+        {
+            "patterns": "default",
+            "name": "ok.jpg",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "evil.php",
+            "error": 31,
+            "args": [
+                "evil.php"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.PHP.jpg",
+            "error": 31,
+            "args": [
+                "x.PHP.jpg"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "a.php5",
+            "error": 31,
+            "args": [
+                "a.php5"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "shell.pHp",
+            "error": 31,
+            "args": [
+                "shell.pHp"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "a.phtml",
+            "error": 31,
+            "args": [
+                "a.phtml"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": ".user.ini",
+            "error": 31,
+            "args": [
+                ".user.ini"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": ".htaccess",
+            "error": 31,
+            "args": [
+                ".htaccess"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": ".htpasswd",
+            "error": 31,
+            "args": [
+                ".htpasswd"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "page.HTML",
+            "error": 31,
+            "args": [
+                "page.HTML"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "page.htm",
+            "error": 31,
+            "args": [
+                "page.htm"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "page.shtml",
+            "error": 31,
+            "args": [
+                "page.shtml"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "report..final.pdf",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "a/b.png",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "patterns": "default",
+            "name": "a\\b.png",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "patterns": "default",
+            "name": "nul\u0000.png",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "patterns": "default",
+            "name": "",
+            "error": 31,
+            "args": null
+        },
+        {
+            "patterns": "default",
+            "name": ".",
+            "error": 31,
+            "args": [
+                "."
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "..",
+            "error": 31,
+            "args": [
+                ".."
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.exe",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "x.phar",
+            "error": 31,
+            "args": [
+                "x.phar"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.pht",
+            "error": 31,
+            "args": [
+                "x.pht"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.phps",
+            "error": 31,
+            "args": [
+                "x.phps"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "ok.svg",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "README",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "secret.txt",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "a.php.",
+            "error": 31,
+            "args": [
+                "a.php."
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": ".php",
+            "error": 31,
+            "args": [
+                ".php"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "php",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "index.php.bak",
+            "error": 31,
+            "args": [
+                "index.php.bak"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.PHTML",
+            "error": 31,
+            "args": [
+                "x.PHTML"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": " .php",
+            "error": 31,
+            "args": [
+                " .php"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "é.png",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "0",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "x.xhtml",
+            "error": 31,
+            "args": [
+                "x.xhtml"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.XHTM",
+            "error": 31,
+            "args": [
+                "x.XHTM"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.xht",
+            "error": 31,
+            "args": [
+                "x.xht"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "pic.svgz",
+            "error": 31,
+            "args": [
+                "pic.svgz"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "pic.SVGZ",
+            "error": 31,
+            "args": [
+                "pic.SVGZ"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.mjs",
+            "error": 31,
+            "args": [
+                "x.mjs"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.es",
+            "error": 31,
+            "args": [
+                "x.es"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "readme.es.md",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "x.mjs.txt",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "x.js",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "x.aspx",
+            "error": 31,
+            "args": [
+                "x.aspx"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "X.ASPX",
+            "error": 31,
+            "args": [
+                "X.ASPX"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.asa",
+            "error": 31,
+            "args": [
+                "x.asa"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.asax",
+            "error": 31,
+            "args": [
+                "x.asax"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.ascx",
+            "error": 31,
+            "args": [
+                "x.ascx"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.ashx",
+            "error": 31,
+            "args": [
+                "x.ashx"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.asmx",
+            "error": 31,
+            "args": [
+                "x.asmx"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.axd",
+            "error": 31,
+            "args": [
+                "x.axd"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "web.config",
+            "error": 31,
+            "args": [
+                "web.config"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "Web.Config",
+            "error": 31,
+            "args": [
+                "Web.Config"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "my.web.config",
+            "result": true
+        },
+        {
+            "patterns": "default",
+            "name": "x.cer",
+            "error": 31,
+            "args": [
+                "x.cer"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.cfm",
+            "error": 31,
+            "args": [
+                "x.cfm"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.cfml",
+            "error": 31,
+            "args": [
+                "x.cfml"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.cfc",
+            "error": 31,
+            "args": [
+                "x.cfc"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.jsp",
+            "error": 31,
+            "args": [
+                "x.jsp"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.JSPX",
+            "error": 31,
+            "args": [
+                "x.JSPX"
+            ]
+        },
+        {
+            "patterns": "default",
+            "name": "x.jspf",
+            "error": 31,
+            "args": [
+                "x.jspf"
+            ]
+        },
+        {
+            "patterns": "custom",
+            "name": "ok.jpg",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "evil.php",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.PHP.jpg",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "a.php5",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "shell.pHp",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "a.phtml",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": ".user.ini",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": ".htaccess",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": ".htpasswd",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "page.HTML",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "page.htm",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "page.shtml",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "report..final.pdf",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "a/b.png",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "patterns": "custom",
+            "name": "a\\b.png",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "patterns": "custom",
+            "name": "nul\u0000.png",
+            "error": 10004,
+            "args": null
+        },
+        {
+            "patterns": "custom",
+            "name": "",
+            "error": 31,
+            "args": null
+        },
+        {
+            "patterns": "custom",
+            "name": ".",
+            "error": 31,
+            "args": [
+                "."
+            ]
+        },
+        {
+            "patterns": "custom",
+            "name": "..",
+            "error": 31,
+            "args": [
+                ".."
+            ]
+        },
+        {
+            "patterns": "custom",
+            "name": "x.exe",
+            "error": 31,
+            "args": [
+                "x.exe"
+            ]
+        },
+        {
+            "patterns": "custom",
+            "name": "x.phar",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.pht",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.phps",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "ok.svg",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "README",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "secret.txt",
+            "error": 31,
+            "args": [
+                "secret.txt"
+            ]
+        },
+        {
+            "patterns": "custom",
+            "name": "a.php.",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": ".php",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "php",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "index.php.bak",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.PHTML",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": " .php",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "é.png",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "0",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.xhtml",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.XHTM",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.xht",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "pic.svgz",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "pic.SVGZ",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.mjs",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.es",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "readme.es.md",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.mjs.txt",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.js",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.aspx",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "X.ASPX",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.asa",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.asax",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.ascx",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.ashx",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.asmx",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.axd",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "web.config",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "Web.Config",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "my.web.config",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.cer",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.cfm",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.cfml",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.cfc",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.jsp",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.JSPX",
+            "result": true
+        },
+        {
+            "patterns": "custom",
+            "name": "x.jspf",
+            "result": true
+        }
+    ]
+}

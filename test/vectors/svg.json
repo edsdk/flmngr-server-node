@@ -1,0 +1,319 @@
+{
+    "source": "enshrined/svg-sanitize 1.0.0",
+    "cases": [
+        {
+            "name": "clean-rect",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "with-declaration",
+            "input": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 10 10\"><circle cx=\"5\" cy=\"5\" r=\"4\" fill=\"red\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 10 10\">\n  <circle cx=\"5\" cy=\"5\" r=\"4\" fill=\"red\"></circle>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "script-and-onload",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" onload=\"alert(1)\"><script>alert(1)</script><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 2
+        },
+        {
+            "name": "javascript-href",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><a href=\"javascript:alert(1)\" xlink:href=\"javascript:alert(2)\"><text>x</text></a></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <a>\n    <text>x</text>\n  </a>\n</svg>\n",
+            "issues": 2
+        },
+        {
+            "name": "safe-hrefs",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><a href=\"https://example.com/\"><text>x</text></a><a href=\"/local\"><text>y</text></a><a href=\"#frag\"><text>z</text></a></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <a href=\"https://example.com/\">\n    <text>x</text>\n  </a>\n  <a href=\"/local\">\n    <text>y</text>\n  </a>\n  <a href=\"#frag\">\n    <text>z</text>\n  </a>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "data-image-href",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><image xlink:href=\"data:image/png;base64,iVBORw0KGgo=\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <image xlink:href=\"data:image/png;base64,iVBORw0KGgo=\" width=\"1\" height=\"1\"></image>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "data-html-href",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><image xlink:href=\"data:text/html;base64,PHNjcmlwdD4=\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <image width=\"1\" height=\"1\"></image>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "use-chain-17-xlink",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><g id=\"n0\"><use xlink:href=\"#n1\"/><use xlink:href=\"#n1\"/></g><g id=\"n1\"><use xlink:href=\"#n2\"/><use xlink:href=\"#n2\"/></g><g id=\"n2\"><use xlink:href=\"#n3\"/><use xlink:href=\"#n3\"/></g><g id=\"n3\"><use xlink:href=\"#n4\"/><use xlink:href=\"#n4\"/></g><g id=\"n4\"><use xlink:href=\"#n5\"/><use xlink:href=\"#n5\"/></g><g id=\"n5\"><use xlink:href=\"#n6\"/><use xlink:href=\"#n6\"/></g><g id=\"n6\"><use xlink:href=\"#n7\"/><use xlink:href=\"#n7\"/></g><g id=\"n7\"><use xlink:href=\"#n8\"/><use xlink:href=\"#n8\"/></g><g id=\"n8\"><use xlink:href=\"#n9\"/><use xlink:href=\"#n9\"/></g><g id=\"n9\"><use xlink:href=\"#n10\"/><use xlink:href=\"#n10\"/></g><g id=\"n10\"><use xlink:href=\"#n11\"/><use xlink:href=\"#n11\"/></g><g id=\"n11\"><use xlink:href=\"#n12\"/><use xlink:href=\"#n12\"/></g><g id=\"n12\"><use xlink:href=\"#n13\"/><use xlink:href=\"#n13\"/></g><g id=\"n13\"><use xlink:href=\"#n14\"/><use xlink:href=\"#n14\"/></g><g id=\"n14\"><use xlink:href=\"#n15\"/><use xlink:href=\"#n15\"/></g><g id=\"n15\"><use xlink:href=\"#n16\"/><use xlink:href=\"#n16\"/></g><g id=\"n16\"><rect width=\"1\" height=\"1\"/></g></defs><use xlink:href=\"#n0\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <defs>\n    <g id=\"n0\"></g>\n    <g id=\"n1\"></g>\n    <g id=\"n2\"></g>\n    <g id=\"n3\"></g>\n    <g id=\"n4\"></g>\n    <g id=\"n5\"></g>\n    <g id=\"n6\"></g>\n    <g id=\"n7\"></g>\n    <g id=\"n8\"></g>\n    <g id=\"n9\"></g>\n    <g id=\"n10\"></g>\n    <g id=\"n11\"></g>\n    <g id=\"n12\"></g>\n    <g id=\"n13\"></g>\n    <g id=\"n14\"></g>\n    <g id=\"n15\"></g>\n    <g id=\"n16\">\n      <rect width=\"1\" height=\"1\"></rect>\n    </g>\n  </defs>\n</svg>\n",
+            "issues": 33
+        },
+        {
+            "name": "use-chain-17-href",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><g id=\"n0\"><use href=\"#n1\"/><use href=\"#n1\"/></g><g id=\"n1\"><use href=\"#n2\"/><use href=\"#n2\"/></g><g id=\"n2\"><use href=\"#n3\"/><use href=\"#n3\"/></g><g id=\"n3\"><use href=\"#n4\"/><use href=\"#n4\"/></g><g id=\"n4\"><use href=\"#n5\"/><use href=\"#n5\"/></g><g id=\"n5\"><use href=\"#n6\"/><use href=\"#n6\"/></g><g id=\"n6\"><use href=\"#n7\"/><use href=\"#n7\"/></g><g id=\"n7\"><use href=\"#n8\"/><use href=\"#n8\"/></g><g id=\"n8\"><use href=\"#n9\"/><use href=\"#n9\"/></g><g id=\"n9\"><use href=\"#n10\"/><use href=\"#n10\"/></g><g id=\"n10\"><use href=\"#n11\"/><use href=\"#n11\"/></g><g id=\"n11\"><use href=\"#n12\"/><use href=\"#n12\"/></g><g id=\"n12\"><use href=\"#n13\"/><use href=\"#n13\"/></g><g id=\"n13\"><use href=\"#n14\"/><use href=\"#n14\"/></g><g id=\"n14\"><use href=\"#n15\"/><use href=\"#n15\"/></g><g id=\"n15\"><use href=\"#n16\"/><use href=\"#n16\"/></g><g id=\"n16\"><rect width=\"1\" height=\"1\"/></g></defs><use href=\"#n0\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <defs>\n    <g id=\"n0\"></g>\n    <g id=\"n1\"></g>\n    <g id=\"n2\"></g>\n    <g id=\"n3\"></g>\n    <g id=\"n4\"></g>\n    <g id=\"n5\"></g>\n    <g id=\"n6\"></g>\n    <g id=\"n7\"></g>\n    <g id=\"n8\"></g>\n    <g id=\"n9\"></g>\n    <g id=\"n10\"></g>\n    <g id=\"n11\"></g>\n    <g id=\"n12\"></g>\n    <g id=\"n13\"></g>\n    <g id=\"n14\"></g>\n    <g id=\"n15\"></g>\n    <g id=\"n16\">\n      <rect width=\"1\" height=\"1\"></rect>\n    </g>\n  </defs>\n</svg>\n",
+            "issues": 33
+        },
+        {
+            "name": "use-chain-mixedcase-href",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><g id=\"n0\"><use HrEf=\"#n1\"/><use HrEf=\"#n1\"/></g><g id=\"n1\"><use HrEf=\"#n2\"/><use HrEf=\"#n2\"/></g><g id=\"n2\"><use HrEf=\"#n3\"/><use HrEf=\"#n3\"/></g><g id=\"n3\"><use HrEf=\"#n4\"/><use HrEf=\"#n4\"/></g><g id=\"n4\"><use HrEf=\"#n5\"/><use HrEf=\"#n5\"/></g><g id=\"n5\"><use HrEf=\"#n6\"/><use HrEf=\"#n6\"/></g><g id=\"n6\"><use HrEf=\"#n7\"/><use HrEf=\"#n7\"/></g><g id=\"n7\"><use HrEf=\"#n8\"/><use HrEf=\"#n8\"/></g><g id=\"n8\"><use HrEf=\"#n9\"/><use HrEf=\"#n9\"/></g><g id=\"n9\"><use HrEf=\"#n10\"/><use HrEf=\"#n10\"/></g><g id=\"n10\"><use HrEf=\"#n11\"/><use HrEf=\"#n11\"/></g><g id=\"n11\"><use HrEf=\"#n12\"/><use HrEf=\"#n12\"/></g><g id=\"n12\"><use HrEf=\"#n13\"/><use HrEf=\"#n13\"/></g><g id=\"n13\"><use HrEf=\"#n14\"/><use HrEf=\"#n14\"/></g><g id=\"n14\"><use HrEf=\"#n15\"/><use HrEf=\"#n15\"/></g><g id=\"n15\"><use HrEf=\"#n16\"/><use HrEf=\"#n16\"/></g><g id=\"n16\"><rect width=\"1\" height=\"1\"/></g></defs><use HrEf=\"#n0\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <defs>\n    <g id=\"n0\"></g>\n    <g id=\"n1\"></g>\n    <g id=\"n2\"></g>\n    <g id=\"n3\"></g>\n    <g id=\"n4\"></g>\n    <g id=\"n5\"></g>\n    <g id=\"n6\"></g>\n    <g id=\"n7\"></g>\n    <g id=\"n8\"></g>\n    <g id=\"n9\"></g>\n    <g id=\"n10\"></g>\n    <g id=\"n11\"></g>\n    <g id=\"n12\"></g>\n    <g id=\"n13\"></g>\n    <g id=\"n14\"></g>\n    <g id=\"n15\"></g>\n    <g id=\"n16\">\n      <rect width=\"1\" height=\"1\"></rect>\n    </g>\n  </defs>\n</svg>\n",
+            "issues": 33
+        },
+        {
+            "name": "use-chain-mixedcase-xlink",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><g id=\"n0\"><use xlink:HrEf=\"#n1\"/><use xlink:HrEf=\"#n1\"/></g><g id=\"n1\"><use xlink:HrEf=\"#n2\"/><use xlink:HrEf=\"#n2\"/></g><g id=\"n2\"><use xlink:HrEf=\"#n3\"/><use xlink:HrEf=\"#n3\"/></g><g id=\"n3\"><use xlink:HrEf=\"#n4\"/><use xlink:HrEf=\"#n4\"/></g><g id=\"n4\"><use xlink:HrEf=\"#n5\"/><use xlink:HrEf=\"#n5\"/></g><g id=\"n5\"><use xlink:HrEf=\"#n6\"/><use xlink:HrEf=\"#n6\"/></g><g id=\"n6\"><use xlink:HrEf=\"#n7\"/><use xlink:HrEf=\"#n7\"/></g><g id=\"n7\"><use xlink:HrEf=\"#n8\"/><use xlink:HrEf=\"#n8\"/></g><g id=\"n8\"><use xlink:HrEf=\"#n9\"/><use xlink:HrEf=\"#n9\"/></g><g id=\"n9\"><use xlink:HrEf=\"#n10\"/><use xlink:HrEf=\"#n10\"/></g><g id=\"n10\"><use xlink:HrEf=\"#n11\"/><use xlink:HrEf=\"#n11\"/></g><g id=\"n11\"><use xlink:HrEf=\"#n12\"/><use xlink:HrEf=\"#n12\"/></g><g id=\"n12\"><use xlink:HrEf=\"#n13\"/><use xlink:HrEf=\"#n13\"/></g><g id=\"n13\"><use xlink:HrEf=\"#n14\"/><use xlink:HrEf=\"#n14\"/></g><g id=\"n14\"><use xlink:HrEf=\"#n15\"/><use xlink:HrEf=\"#n15\"/></g><g id=\"n15\"><use xlink:HrEf=\"#n16\"/><use xlink:HrEf=\"#n16\"/></g><g id=\"n16\"><rect width=\"1\" height=\"1\"/></g></defs><use xlink:HrEf=\"#n0\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <defs>\n    <g id=\"n0\"></g>\n    <g id=\"n1\"></g>\n    <g id=\"n2\"></g>\n    <g id=\"n3\"></g>\n    <g id=\"n4\"></g>\n    <g id=\"n5\"></g>\n    <g id=\"n6\"></g>\n    <g id=\"n7\"></g>\n    <g id=\"n8\"></g>\n    <g id=\"n9\"></g>\n    <g id=\"n10\"></g>\n    <g id=\"n11\"></g>\n    <g id=\"n12\"></g>\n    <g id=\"n13\"></g>\n    <g id=\"n14\"></g>\n    <g id=\"n15\"></g>\n    <g id=\"n16\">\n      <rect width=\"1\" height=\"1\"></rect>\n    </g>\n  </defs>\n</svg>\n",
+            "issues": 33
+        },
+        {
+            "name": "use-chain-short",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><defs><g id=\"n0\"><use href=\"#n1\"/><use href=\"#n1\"/></g><g id=\"n1\"><use href=\"#n2\"/><use href=\"#n2\"/></g><g id=\"n2\"><use href=\"#n3\"/><use href=\"#n3\"/></g><g id=\"n3\"><rect width=\"1\" height=\"1\"/></g></defs><use href=\"#n0\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <defs>\n    <g id=\"n0\">\n      <use href=\"#n1\"></use>\n      <use href=\"#n1\"></use>\n    </g>\n    <g id=\"n1\">\n      <use href=\"#n2\"></use>\n      <use href=\"#n2\"></use>\n    </g>\n    <g id=\"n2\">\n      <use href=\"#n3\"></use>\n      <use href=\"#n3\"></use>\n    </g>\n    <g id=\"n3\">\n      <rect width=\"1\" height=\"1\"></rect>\n    </g>\n  </defs>\n  <use href=\"#n0\"></use>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "use-external",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use xlink:href=\"http://evil.example/x.svg#a\"/><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "use-self",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><g id=\"a\"><use href=\"#a\"/></g></svg>",
+            "exception": "LogicException"
+        },
+        {
+            "name": "use-loop",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><g id=\"a\"><use href=\"#b\"/></g><g id=\"b\"><use href=\"#a\"/></g></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <g id=\"a\"></g>\n  <g id=\"b\"></g>\n</svg>\n",
+            "issues": 2
+        },
+        {
+            "name": "foreignobject",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><foreignObject width=\"1\" height=\"1\"><div xmlns=\"http://www.w3.org/1999/xhtml\">hi</div></foreignObject><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "remote-css-kept-by-default",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><style>@import url(\"http://evil.example/x.css\");</style><rect style=\"fill:url(http://evil.example/p.svg#a)\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <style>@import url(\"http://evil.example/x.css\");</style>\n  <rect style=\"fill:url(http://evil.example/p.svg#a)\" width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "cdata-in-style",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><style><![CDATA[rect { fill: red; }]]></style><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <style>rect { fill: red; }</style>\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "comment-and-pi",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><!-- a comment --><?xml-stylesheet href=\"x.css\"?><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 2
+        },
+        {
+            "name": "php-tag",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1\" height=\"1\"/><?php echo 'x'; ?></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "doctype-entity",
+            "input": "<!DOCTYPE svg [<!ENTITY xxe \"boom\">]><svg xmlns=\"http://www.w3.org/2000/svg\"><text>&xxe;</text></svg>",
+            "output": false,
+            "issues": 1
+        },
+        {
+            "name": "no-xmlns",
+            "input": "<svg><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg>\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "prefixed-root",
+            "input": "<svg:svg xmlns:svg=\"http://www.w3.org/2000/svg\"><svg:rect width=\"1\" height=\"1\"/></svg:svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
+            "issues": 1
+        },
+        {
+            "name": "not-xml",
+            "input": "<svg><rect></svg",
+            "output": false,
+            "issues": 3
+        },
+        {
+            "name": "two-roots",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1\" height=\"1\"/></svg><svg xmlns=\"http://www.w3.org/2000/svg\"/>",
+            "output": false,
+            "issues": 1
+        },
+        {
+            "name": "html-root",
+            "input": "<html><body><svg xmlns=\"http://www.w3.org/2000/svg\"/></body></html>",
+            "exception": "LogicException"
+        },
+        {
+            "name": "empty",
+            "input": "",
+            "output": "",
+            "issues": 0
+        },
+        {
+            "name": "zero",
+            "input": "0",
+            "output": "",
+            "issues": 0
+        },
+        {
+            "name": "nested-svg",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><svg x=\"1\"><rect width=\"1\" height=\"1\"/></svg></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <svg x=\"1\">\n    <rect width=\"1\" height=\"1\"></rect>\n  </svg>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "font-face",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><font face=\"Arial\"><text>x</text></font><text>y</text></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <text>y</text>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "font-plain",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><font><text>x</text></font></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <font>\n    <text>x</text>\n  </font>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "mixed-text",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><text>Hello &amp; <tspan font-weight=\"bold\">world</tspan> again</text></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <text>Hello &amp; <tspan font-weight=\"bold\">world</tspan> again</text>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "blank-text",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><text> </text><desc>  two  </desc></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <text> </text>\n  <desc>  two  </desc>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "aria-data-attrs",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"pic\" data-x=\"1\" foo=\"bar\" onclick=\"x()\"><rect width=\"1\" height=\"1\" xml:space=\"preserve\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" aria-label=\"pic\" data-x=\"1\">\n  <rect width=\"1\" height=\"1\" xml:space=\"preserve\"></rect>\n</svg>\n",
+            "issues": 2
+        },
+        {
+            "name": "uppercase-tags",
+            "input": "<SVG xmlns=\"http://www.w3.org/2000/svg\"><RECT width=\"1\" height=\"1\"/><rect width=\"2\" height=\"2\"/></SVG>",
+            "exception": "LogicException"
+        },
+        {
+            "name": "xlink-undeclared",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><use xlink:href=\"#a\"/><rect id=\"a\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <use></use>\n  <rect id=\"a\" width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "xlink-wrong-case-prefix",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use XLinK:href=\"#a\"/><rect id=\"a\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <use></use>\n  <rect id=\"a\" width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "unicode-text",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><text>Привет 日本 é</text></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <text>Привет 日本 é</text>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "attr-escapes",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><text data-x=\"a &amp; b &lt; c &quot; d\">1 &lt; 2 &amp; 3</text></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <text data-x=\"a &amp; b &lt; c &quot; d\">1 &lt; 2 &amp; 3</text>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "duplicate-ids",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><g id=\"a\"><rect width=\"1\" height=\"1\"/></g><g id=\"a\"><use href=\"#a\"/></g></svg>",
+            "exception": "LogicException"
+        },
+        {
+            "name": "image-remote",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><image href=\"https://example.com/x.png\" xlink:href=\"http://example.com/y.png\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n  <image href=\"https://example.com/x.png\" xlink:href=\"http://example.com/y.png\" width=\"1\" height=\"1\"></image>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "style-attr-javascript",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><rect style=\"behavior:url(javascript:alert(1))\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect style=\"behavior:url(javascript:alert(1))\" width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "xmlns-after-attributes",
+            "input": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 10 10\" xml:space=\"preserve\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" id=\"Layer_1\" x=\"0px\" y=\"0px\" viewBox=\"0 0 10 10\" xml:space=\"preserve\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "xmlns-last",
+            "input": "<svg width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" version=\"1.1\" id=\"svg1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"10\" height=\"10\" viewBox=\"0 0 10 10\" version=\"1.1\" id=\"svg1\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "xlink-declared-before-xmlns",
+            "input": "<svg xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><use xlink:href=\"#a\"/><rect id=\"a\" width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n  <use xlink:href=\"#a\"></use>\n  <rect id=\"a\" width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "child-declaration-after-attribute",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\"><g id=\"g\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use xlink:href=\"#r\"/><rect id=\"r\" width=\"1\" height=\"1\"/></g></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <g xmlns:xlink=\"http://www.w3.org/1999/xlink\" id=\"g\">\n    <use xlink:href=\"#r\"></use>\n    <rect id=\"r\" width=\"1\" height=\"1\"></rect>\n  </g>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "handler-before-xmlns",
+            "input": "<svg onload=\"x()\" width=\"2\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"2\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "xml-space-before-xmlns",
+            "input": "<svg xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\"><text xml:space=\"preserve\"> a </text></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\">\n  <text xml:space=\"preserve\"> a </text>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "xmlns-xml-declared",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xml=\"http://www.w3.org/XML/1998/namespace\"><text xml:space=\"preserve\">a</text></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <text xml:space=\"preserve\">a</text>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "xmlns-xml-other-uri",
+            "input": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xml=\"http://example.com/\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "doctype-public",
+            "input": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"10\" height=\"10\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"10\" height=\"10\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 0
+        },
+        {
+            "name": "doctype-entities-unused",
+            "input": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\" [\n\t<!ENTITY ns_flows \"http://ns.adobe.com/Flows/1.0/\">\n]>\n<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"10px\" height=\"10px\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"10px\" height=\"10px\">\n  <rect width=\"1\" height=\"1\"></rect>\n</svg>\n",
+            "issues": 1
+        },
+        {
+            "name": "doctype-entity-in-xmlns",
+            "input": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\" [\n\t<!ENTITY ns_flows \"http://ns.adobe.com/Flows/1.0/\">\n]>\n<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:x=\"&ns_flows;\" width=\"10px\" height=\"10px\"><rect width=\"1\" height=\"1\"/></svg>",
+            "output": false,
+            "issues": 2
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@edsdk/flmngr-server-node",
+  "description": "Node server-side implementation of the Flmngr file manager",
+  "version": "1.0.0",
+  "private": false,
+  "author": {
+    "name": "EdSDK",
+    "url": "https://edsdk.com/"
+  },
+  "homepage": "https://flmngr.com",
+  "repository": "https://github.com/edsdk/flmngr-server-node",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node scripts/stamp-module-type.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "type": "commonjs",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE.txt",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.8",
+    "sharp": "^0.33.0 || ^0.34.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "typescript": "^5.4.0"
+  },
+  "keywords": [
+    "file-manager",
+    "fileManager",
+    "file",
+    "image",
+    "manager",
+    "server",
+    "node"
+  ]
+}

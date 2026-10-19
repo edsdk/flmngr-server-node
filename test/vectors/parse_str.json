@@ -1,0 +1,238 @@
+{
+    "source": "php parse_str()",
+    "cases": [
+        {
+            "query": "a=1",
+            "result": {
+                "a": "1"
+            }
+        },
+        {
+            "query": "a=1&a=2",
+            "result": {
+                "a": "2"
+            }
+        },
+        {
+            "query": "a[]=1&a[]=2",
+            "result": {
+                "a": [
+                    "1",
+                    "2"
+                ]
+            }
+        },
+        {
+            "query": "a[x]=1&a[y]=2",
+            "result": {
+                "a": {
+                    "x": "1",
+                    "y": "2"
+                }
+            }
+        },
+        {
+            "query": "a.b=1",
+            "result": {
+                "a_b": "1"
+            }
+        },
+        {
+            "query": "a b=1",
+            "result": {
+                "a_b": "1"
+            }
+        },
+        {
+            "query": "a=1+2",
+            "result": {
+                "a": "1 2"
+            }
+        },
+        {
+            "query": "a=%20x",
+            "result": {
+                "a": " x"
+            }
+        },
+        {
+            "query": "a[=1",
+            "result": {
+                "a_": "1"
+            }
+        },
+        {
+            "query": "a[]",
+            "result": {
+                "a": [
+                    ""
+                ]
+            }
+        },
+        {
+            "query": "a",
+            "result": {
+                "a": ""
+            }
+        },
+        {
+            "query": "=1",
+            "result": []
+        },
+        {
+            "query": "a[0]=x&a[1]=y",
+            "result": {
+                "a": [
+                    "x",
+                    "y"
+                ]
+            }
+        },
+        {
+            "query": "a[1]=x&a[]=y",
+            "result": {
+                "a": {
+                    "1": "x",
+                    "2": "y"
+                }
+            }
+        },
+        {
+            "query": "a[]=1&a[x]=2",
+            "result": {
+                "a": {
+                    "0": "1",
+                    "x": "2"
+                }
+            }
+        },
+        {
+            "query": "k[x][y]=1",
+            "result": {
+                "k": {
+                    "x": {
+                        "y": "1"
+                    }
+                }
+            }
+        },
+        {
+            "query": "a%5B%5D=1",
+            "result": {
+                "a": [
+                    "1"
+                ]
+            }
+        },
+        {
+            "query": "&&a=1&",
+            "result": {
+                "a": "1"
+            }
+        },
+        {
+            "query": "a[b]c=1",
+            "result": {
+                "a": {
+                    "b": "1"
+                }
+            }
+        },
+        {
+            "query": "formatSuffixes[]=-preview&formatSuffixes[]=-medium",
+            "result": {
+                "formatSuffixes": [
+                    "-preview",
+                    "-medium"
+                ]
+            }
+        },
+        {
+            "query": "fs=%2Ffiles%2Fa.png%7C%2Ffiles%2Fb.png",
+            "result": {
+                "fs": "/files/a.png|/files/b.png"
+            }
+        },
+        {
+            "query": "f=%2Ffiles%2F%C3%A9.png",
+            "result": {
+                "f": "/files/é.png"
+            }
+        },
+        {
+            "query": "a=x&a[]=y",
+            "result": {
+                "a": [
+                    "y"
+                ]
+            }
+        },
+        {
+            "query": "a[]=x&a=y",
+            "result": {
+                "a": "y"
+            }
+        },
+        {
+            "query": "a[2]=x&a[]=y&a[0]=z",
+            "result": {
+                "a": {
+                    "2": "x",
+                    "3": "y",
+                    "0": "z"
+                }
+            }
+        },
+        {
+            "query": "a[x]=1&a[x]=2",
+            "result": {
+                "a": {
+                    "x": "2"
+                }
+            }
+        },
+        {
+            "query": "a..b=1",
+            "result": {
+                "a__b": "1"
+            }
+        },
+        {
+            "query": "a[x]=1&a=2",
+            "result": {
+                "a": "2"
+            }
+        },
+        {
+            "query": " a=1",
+            "result": {
+                "a": "1"
+            }
+        },
+        {
+            "query": "a=1&&b=2",
+            "result": {
+                "a": "1",
+                "b": "2"
+            }
+        },
+        {
+            "query": "arr[]=&arr[]=",
+            "result": {
+                "arr": [
+                    "",
+                    ""
+                ]
+            }
+        },
+        {
+            "query": "hideDirs[]=.cache&hideDirs[]=tmp",
+            "result": {
+                "hideDirs": [
+                    ".cache",
+                    "tmp"
+                ]
+            }
+        }
+    ]
+}

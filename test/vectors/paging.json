@@ -1,0 +1,2632 @@
+{
+    "source": "FileSystem::reqGetFilesPaged()",
+    "files": [
+        {
+            "name": "b.png",
+            "mtime": 300,
+            "size": 30
+        },
+        {
+            "name": "a.png",
+            "mtime": 100,
+            "size": 10
+        },
+        {
+            "name": "c.txt",
+            "mtime": 200,
+            "size": 50
+        },
+        {
+            "name": "a-preview.png",
+            "mtime": 100,
+            "size": 5
+        },
+        {
+            "name": "file2.jpg",
+            "mtime": 400,
+            "size": 20
+        },
+        {
+            "name": "file10.jpg",
+            "mtime": 500,
+            "size": 20
+        },
+        {
+            "name": "IMG.JPG",
+            "mtime": 50,
+            "size": 7
+        },
+        {
+            "name": "notes.TXT",
+            "mtime": 60,
+            "size": 8
+        },
+        {
+            "name": "file2-preview.png",
+            "mtime": 400,
+            "size": 3
+        },
+        {
+            "name": "file2-medium.jpg",
+            "mtime": 400,
+            "size": 4
+        },
+        {
+            "name": "readme",
+            "mtime": 10,
+            "size": 1
+        },
+        {
+            "name": "readme-preview.png",
+            "mtime": 10,
+            "size": 2
+        },
+        {
+            "name": "z.webp",
+            "mtime": 300,
+            "size": 30
+        }
+    ],
+    "cases": [
+        {
+            "name": "name-asc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "name-desc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "false",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "name-desc-missing-orderAsc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "date-asc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "date",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "date-desc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "date",
+                "orderAsc": "FALSE",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "size-asc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "size",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "size-desc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "size",
+                "orderAsc": "no",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "unknown-orderBy",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "colour",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "formats",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "formatIds": [
+                    "preview",
+                    "medium"
+                ],
+                "formatSuffixes": [
+                    "-preview",
+                    "-medium"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "preview": {
+                                "name": "a-preview.png",
+                                "size": 5,
+                                "timestamp": 100,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "medium": {
+                                "name": "file2-medium.jpg",
+                                "size": 4,
+                                "timestamp": 400,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 9,
+                "countFiltered": 9,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "formats-desc",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "false",
+                "filter": "**",
+                "formatIds": [
+                    "preview",
+                    "medium"
+                ],
+                "formatSuffixes": [
+                    "-preview",
+                    "-medium"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "medium": {
+                                "name": "file2-medium.jpg",
+                                "size": 4,
+                                "timestamp": 400,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "preview": {
+                                "name": "a-preview.png",
+                                "size": 5,
+                                "timestamp": 100,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 9,
+                "countFiltered": 9,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "whiteList",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "formatIds": [
+                    "preview",
+                    "medium"
+                ],
+                "formatSuffixes": [
+                    "-preview",
+                    "-medium"
+                ],
+                "whiteList": [
+                    "*.png",
+                    "*.jpg"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "preview": {
+                                "name": "a-preview.png",
+                                "size": 5,
+                                "timestamp": 100,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "medium": {
+                                "name": "file2-medium.jpg",
+                                "size": 4,
+                                "timestamp": 400,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 5,
+                "countFiltered": 5,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "whiteList-casefold",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "whiteList": [
+                    "*.jpg"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 4,
+                "countFiltered": 4,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "blackList",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "formatIds": [
+                    "preview",
+                    "medium"
+                ],
+                "formatSuffixes": [
+                    "-preview",
+                    "-medium"
+                ],
+                "blackList": [
+                    "*.txt",
+                    "readme"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "preview": {
+                                "name": "a-preview.png",
+                                "size": 5,
+                                "timestamp": 100,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "medium": {
+                                "name": "file2-medium.jpg",
+                                "size": 4,
+                                "timestamp": 400,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 6,
+                "countFiltered": 6,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "filter-case",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "*.PNG"
+            },
+            "result": {
+                "files": [],
+                "countTotal": 13,
+                "countFiltered": 0,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "filter-png",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "*.png",
+                "formatIds": [
+                    "preview",
+                    "medium"
+                ],
+                "formatSuffixes": [
+                    "-preview",
+                    "-medium"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "preview": {
+                                "name": "a-preview.png",
+                                "size": 5,
+                                "timestamp": 100,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 9,
+                "countFiltered": 2,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "filter-and-lists",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "*.jp*",
+                "whiteList": [
+                    "*.*"
+                ],
+                "blackList": [
+                    "IMG.*"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 11,
+                "countFiltered": 3,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "page-1",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-2-lastIndex",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastIndex": "2"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-lastIndex-0",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastIndex": "0"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-lastFile",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastFile": "b.png"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-lastFile-wins",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastFile": "b.png",
+                "lastIndex": "0"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-lastFile-unknown",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastFile": "nope.png",
+                "lastIndex": "1"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-alwaysInclude",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastIndex": "2",
+                "alwaysInclude": [
+                    "z.webp",
+                    "nope.png",
+                    "a.png"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "page-last",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "3",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastIndex": "20"
+            },
+            "result": {
+                "files": [],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "page-exact-end",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "13",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "page-size-1",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "1",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "lastIndex": "11"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "no-maxFiles",
+            "post": {
+                "dir": "/files",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        },
+        {
+            "name": "formats-missing-suffix",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "formatIds": [
+                    "preview",
+                    "medium"
+                ],
+                "formatSuffixes": [
+                    "-preview"
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": {
+                            "preview": {
+                                "name": "a-preview.png",
+                                "size": 5,
+                                "timestamp": 100,
+                                "width": null,
+                                "height": null,
+                                "blurHash": null,
+                                "formats": []
+                            }
+                        }
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 10,
+                "countFiltered": 10,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "formats-empty-suffix",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "formatIds": [
+                    "preview"
+                ],
+                "formatSuffixes": [
+                    ""
+                ]
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "formats-string",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "100",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**",
+                "formatSuffixes": "-preview"
+            },
+            "result": {
+                "files": [
+                    {
+                        "name": "IMG.JPG",
+                        "size": 7,
+                        "timestamp": 50,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a-preview.png",
+                        "size": 5,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "a.png",
+                        "size": 10,
+                        "timestamp": 100,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "b.png",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "c.txt",
+                        "size": 50,
+                        "timestamp": 200
+                    },
+                    {
+                        "name": "file2-medium.jpg",
+                        "size": 4,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2-preview.png",
+                        "size": 3,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file2.jpg",
+                        "size": 20,
+                        "timestamp": 400,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "file10.jpg",
+                        "size": 20,
+                        "timestamp": 500,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "notes.TXT",
+                        "size": 8,
+                        "timestamp": 60
+                    },
+                    {
+                        "name": "readme",
+                        "size": 1,
+                        "timestamp": 10
+                    },
+                    {
+                        "name": "readme-preview.png",
+                        "size": 2,
+                        "timestamp": 10,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    },
+                    {
+                        "name": "z.webp",
+                        "size": 30,
+                        "timestamp": 300,
+                        "width": null,
+                        "height": null,
+                        "blurHash": null,
+                        "formats": []
+                    }
+                ],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": true
+            }
+        },
+        {
+            "name": "maxFiles-zero",
+            "post": {
+                "dir": "/files",
+                "maxFiles": "0",
+                "orderBy": "name",
+                "orderAsc": "true",
+                "filter": "**"
+            },
+            "result": {
+                "files": [],
+                "countTotal": 13,
+                "countFiltered": 13,
+                "isEnd": false
+            }
+        }
+    ]
+}
